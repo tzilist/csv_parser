@@ -1,0 +1,11 @@
+[package]
+name = "bin"
+version = "0.1.0"
+authors = ["Ted Zilist <ted@goop.com>"]
+edition = "2018"
+
+[[bin]]
+name = "csv_parser"
+path = "src/main.rs"
+
+[dependencies]
