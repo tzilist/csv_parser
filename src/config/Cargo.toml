@@ -1,0 +1,20 @@
+[package]
+name = "config"
+version = "0.1.0"
+authors = ["Ted Zilist <ted@goop.com>"]
+edition = "2018"
+
+[lib]
+name = "config"
+path = "src/lib.rs"
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+dotenv = "0.15"
+env_logger = "0.7"
+log = "0.4"
+paw = "1.0"
+pretty_env_logger = "0.4"
+structopt = { version = "0.3", features = ["paw"] }
+tracing = "0.1"
+tracing-subscriber = "0.2"

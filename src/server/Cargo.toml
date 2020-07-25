@@ -5,7 +5,7 @@ authors = ["Ted Zilist <ted@goop.com>"]
 edition = "2018"
 
 [lib]
-name = "csv_parser_server"
+name = "server"
 path = "src/lib.rs"
 
 [dependencies]

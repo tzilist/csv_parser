@@ -3,7 +3,9 @@
 #![warn(rustdoc)]
 #![warn(rust_2018_idioms)]
 
-#[actix_rt::main]
-async fn main() {
-    println!("Hello");
-}
+#[macro_use]
+extern crate log;
+
+mod config;
+
+pub use config::Config;

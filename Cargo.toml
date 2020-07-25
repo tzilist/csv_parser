@@ -1,9 +1,6 @@
-[package]
-name = "csv_parser"
-version = "0.1.0"
-authors = ["Ted Zilist <ted@goop.com>"]
-edition = "2018"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[dependencies]
+[workspace]
+members = [
+  "src/bin",
+  "src/config",
+  "src/server"
+]

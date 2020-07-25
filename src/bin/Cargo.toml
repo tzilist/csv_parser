@@ -9,3 +9,4 @@ name = "csv_parser"
 path = "src/main.rs"
 
 [dependencies]
+actix-rt = "1.1"
