@@ -80,7 +80,7 @@ impl Config {
             panic!(e);
         });
 
-        Self::set_log_level(&config.log_level);
+        Self::set_log_level();
 
         config.addr = Some(
             format!("{}:{}", &config.host, &config.port)
@@ -99,10 +99,10 @@ impl Config {
 
     /// set the log level of the server, can be "trace", "debug", "info", "warn", "error", or "off"
     /// The default value is set in the Config struct above
-    fn set_log_level(default: &str) {
+    fn set_log_level() {
         // ok to unwrap here and panic if the set OsString is not valid
         let set_env_log_level = env::var_os("LOG_LEVEL")
-            .unwrap_or_else(|| default.into())
+            .unwrap_or_else(|| "".into())
             .into_string()
             .unwrap();
 

@@ -40,6 +40,6 @@ const fileStream = fs.createWriteStream(fileName);
 fileStream.write('id,email,name,is_parent\n');
 
 generate({
-  length: 1000,
+  length: 3000,
   columns: [randomString, generateEmail, generateName, 'bool'],
 }).pipe(fileStream);
