@@ -1,6 +1,7 @@
 use std::sync::Arc;
 
 use actix_web::{
+    guard,
     middleware::{Compress, Logger},
     web, App, HttpServer,
 };
@@ -39,5 +40,13 @@ pub async fn start(state: Arc<State>) -> std::io::Result<()> {
 
 /// Configures the routes
 fn add_routes(cfg: &mut web::ServiceConfig) {
-    cfg.service(web::scope("api").route("parse", web::post().to(parser::parse_csv)));
+    cfg.service(
+        web::scope("api").route(
+            "parse",
+            web::post()
+                // this guard is in place to ensure that they send a csv as the POST body
+                .guard(guard::Header("content-type", "text/csv"))
+                .to(parser::parse_csv),
+        ),
+    );
 }

@@ -1,0 +1,15 @@
+{
+  "name": "csv_generator",
+  "version": "1.0.0",
+  "description": "Generate some CSV",
+  "main": "index.js",
+  "scripts": {
+    "generate": "node index.js"
+  },
+  "author": "Ted Zilist",
+  "license": "ISC",
+  "dependencies": {
+    "csv-generate": "^3.2.4",
+    "faker": "^4.1.0"
+  }
+}
