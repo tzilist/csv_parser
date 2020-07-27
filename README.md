@@ -6,7 +6,7 @@ JSON response containing an array with each CSV record as an object within it.
 ### Getting Started
 Firstly, ensure you have the following installed
 ```
-- (Rust)[https://www.rust-lang.org/tools/install]
+- [Rust](https://www.rust-lang.org/tools/install)
 ```
 
 Clone this repository and run `cargo run`. If you'd like to set any specific environment variables,
@@ -36,7 +36,7 @@ Run this from the root directory:
 cd scripts/csv_generator && npm i && npm run generate && cd -
 ```
 
-For more info, please check (here)[scripts/csv_generator/README.md]
+For more info, please check [here](scripts/csv_generator/README.md)
 
 #### Making a request
 Assuming your server is running, in another terminal, run `cd scripts` followed by `./http_req.sh`
