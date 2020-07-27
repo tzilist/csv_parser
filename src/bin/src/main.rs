@@ -1,4 +1,12 @@
-//! TODO
+//! This is the binary to run the actual server
+//!
+//! # To Use
+//!
+//! from the root directory, run:
+//!
+//! ```bash
+//! cargo run
+//! ```
 
 #![warn(missing_docs)]
 #![warn(clippy::all)]

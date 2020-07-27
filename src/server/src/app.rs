@@ -1,3 +1,22 @@
+//! Contains the bits to start the server
+//! # Example
+//!
+//! ```ignore
+//! use std::sync::Arc;
+//!
+//! use config::Config;
+//! use server;
+//!
+//!
+//! #[actix_rt::main]
+//! async fn main() {
+//!     let state = Arc::new(State {
+//!         config: Config
+//!     });
+//!
+//!     server::start(state).await;
+//! }
+
 use std::sync::Arc;
 
 use actix_web::{

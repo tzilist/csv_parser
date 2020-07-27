@@ -49,13 +49,6 @@ pub struct Config {
     /// defaults to "info"
     pub log_level: String,
 
-    // #[structopt(
-    // long,
-    // env = "PSQL_URL",
-    // help = "The PostgreSQL URI for the database to connect to"
-    // )]
-    // /// the PostgreSQL URI to use to connect to the database
-    // pub psql_url: String,
     #[structopt(skip)]
     /// the host and port put together as {host}:{port}
     pub addr: Option<SocketAddr>,
@@ -63,6 +56,8 @@ pub struct Config {
 
 impl Config {
     /// Initialize the config, setup tracing/log sinks
+    /// The log level of the server can be "trace", "debug", "info", "warn", "error", or "off"
+    /// The default value is set in the Config struct definition
     pub fn init() -> Self {
         dotenv().ok();
 
@@ -80,29 +75,8 @@ impl Config {
             panic!(e);
         });
 
-        Self::set_log_level();
-
-        config.addr = Some(
-            format!("{}:{}", &config.host, &config.port)
-                .parse()
-                .unwrap_or_else(|e| {
-                    eprintln!(
-                        "Invalid socket address given, {}:{}. Panicking...",
-                        &config.host, &config.port
-                    );
-                    panic!(e)
-                }),
-        );
-
-        config
-    }
-
-    /// set the log level of the server, can be "trace", "debug", "info", "warn", "error", or "off"
-    /// The default value is set in the Config struct above
-    fn set_log_level() {
-        // ok to unwrap here and panic if the set OsString is not valid
         let set_env_log_level = env::var_os("LOG_LEVEL")
-            .unwrap_or_else(|| "".into())
+            .unwrap_or_else(|| config.log_level.clone().into())
             .into_string()
             .unwrap();
 
@@ -121,5 +95,19 @@ impl Config {
 
         // ok to unwrap here and panic as something has gone wrong intializing our log sink
         LogTracer::init_with_filter(log_level_filter).unwrap();
+
+        config.addr = Some(
+            format!("{}:{}", &config.host, &config.port)
+                .parse()
+                .unwrap_or_else(|e| {
+                    eprintln!(
+                        "Invalid socket address given, {}:{}. Panicking...",
+                        &config.host, &config.port
+                    );
+                    panic!(e)
+                }),
+        );
+
+        config
     }
 }
