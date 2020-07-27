@@ -6,7 +6,7 @@ JSON response containing an array with each CSV record as an object within it.
 ### Getting Started
 Firstly, ensure you have the following installed
 ```
-- [Rust](https://www.rust-lang.org/tools/install)
+- Rust (https://www.rust-lang.org/tools/install)
 ```
 
 Clone this repository and run `cargo run`. If you'd like to set any specific environment variables,
@@ -37,6 +37,9 @@ cd scripts/csv_generator && npm i && npm run generate && cd -
 ```
 
 For more info, please check [here](scripts/csv_generator/README.md)
+
+#### Running the server
+run `cargo run`
 
 #### Making a request
 Assuming your server is running, in another terminal, run `cd scripts` followed by `./http_req.sh`
@@ -75,3 +78,4 @@ The others, in no particular order:
 - Should stream bytes from request body into CSV buf reader as bytes are ready
     - I think using the `csv-core` crate for incremental parsing would, potentially, make this endpoint a little bit faster
 - Models should be separated out into a `domain` crate for testing/readability
+- Testing is not particularly robust at the moment
