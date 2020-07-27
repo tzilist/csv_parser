@@ -1,3 +1,5 @@
+.gitconfig
+
 /target
 
 scripts/csv_generator/node_modules
