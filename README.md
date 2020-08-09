@@ -1,6 +1,6 @@
 ### CSV Parsing Server
 
-This server takes a `POST` request with CSV as it's body. It parses the CSV and returns a 
+This server takes a `POST` request with CSV as its body. It parses the CSV and returns a 
 JSON response containing an array with each CSV record as an object within it.
 
 ### Getting Started
