@@ -1,4 +1,5 @@
-#!/bin/bash -eou pipefail
+#!/usr/bin/env bash
+set -eou pipefail
 
 CSV_FILE=csv_generator/fake_people.csv
 
